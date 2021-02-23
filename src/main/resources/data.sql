@@ -1,3 +1,3 @@
-INSERT INTO tb_user (name) VALUES ('Maria');
-INSERT INTO tb_user (name) VALUES ('Bob');
-INSERT INTO tb_user (name) VALUES ('Ana');
+INSERT INTO tb_employee (name) VALUES ('Maria');
+INSERT INTO tb_employee (name) VALUES ('Bob');
+INSERT INTO tb_employee (name) VALUES ('Ana');
