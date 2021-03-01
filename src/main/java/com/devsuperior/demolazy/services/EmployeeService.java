@@ -1,6 +1,7 @@
 package com.devsuperior.demolazy.services;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,15 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository repository;
 	
-	public EmployeeDTO findById(Long id) {
-		Optional<Employee> result = repository.findById(id);
-		return new EmployeeDTO(result.get());
+	public List<EmployeeDTO> findAll() {
+		List<Employee> list = repository.findAll();
+		return list.stream().map(x -> new EmployeeDTO(x)).collect(Collectors.toList());
+	}
+	
+	public EmployeeDTO insert(EmployeeDTO dto) {
+		Employee entity = new Employee();
+		entity.setName(dto.getName());
+		entity = repository.save(entity);
+		return new EmployeeDTO(entity);
 	}
 }
