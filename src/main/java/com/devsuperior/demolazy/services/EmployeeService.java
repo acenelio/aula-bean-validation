@@ -24,6 +24,8 @@ public class EmployeeService {
 	public EmployeeDTO insert(EmployeeDTO dto) {
 		Employee entity = new Employee();
 		entity.setName(dto.getName());
+		entity.setBirthDate(dto.getBirthDate());
+		entity.setSalary(dto.getSalary());
 		entity = repository.save(entity);
 		return new EmployeeDTO(entity);
 	}

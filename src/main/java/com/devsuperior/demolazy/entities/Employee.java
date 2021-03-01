@@ -1,5 +1,7 @@
 package com.devsuperior.demolazy.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +16,18 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private LocalDate birthDate;
+	private Double salary;
 	
 	public Employee() {
 	}
 
-	public Employee(Long id, String name) {
+	public Employee(Long id, String name, LocalDate birthDate, Double salary) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.birthDate = birthDate;
+		this.salary = salary;
 	}
 
 	public Long getId() {
@@ -38,5 +44,21 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 }
